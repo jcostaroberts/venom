@@ -4,9 +4,7 @@ from datetime import datetime
 from lxml import html
 import argparse
 import csv
-import os
 import pdb
-import sys
 import unicodedata
 
 def read_file(infile):
@@ -21,7 +19,7 @@ def their_name(expected_name, n1, n2):
 
 def parsed_html(infile):
    tree = html.fromstring(read_file(infile))
-   table = tree.xpath('//div[@class="me_feed_story gray_bottom_divider p_twenty_l p_twenty_r"]')
+   table = tree.xpath('//div[@class="profile_feed_story gray_bottom_divider p_twenty_l p_twenty_r"]')
    return [t.text_content() for t in table]
 
 def item_to_list(item):
